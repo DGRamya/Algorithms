@@ -1,0 +1,36 @@
+package com.company;
+
+public class GuessingGame {
+    public static void main(String[] args) {
+
+        int stars[]=  {3,8,9,13,18,19,21,22,28,99};
+        int n=findStar(stars,21);
+        if(n != -1){
+            System.out.println("The required star is found at position : "+n+1);
+        }else{
+            System.out.println("The required star is not found in catalog");
+        }
+
+
+    }
+    public static int findStar(int a[],int n){
+        int first =0;
+        int last = a.length-1;
+
+        while(first<=last){
+            int mid=(first+last)/2;
+            if(a[mid]== n){
+                return mid;
+            }
+            else if(n<a[mid]){
+                last = mid-1;
+            }
+            else{
+                first = mid+1;
+            }
+        }
+        return -1;
+
+    }
+
+}
